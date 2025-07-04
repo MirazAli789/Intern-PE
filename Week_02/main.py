@@ -48,17 +48,16 @@ class TicTacToe:
     
     def check_winner(self):
         """Check if there's a winner"""
-        # Check rows
+
         for row in self.board:
             if row[0] == row[1] == row[2] != ' ':
                 return row[0]
-        
-        # Check columns
+
         for col in range(3):
             if self.board[0][col] == self.board[1][col] == self.board[2][col] != ' ':
                 return self.board[0][col]
         
-        # Check diagonals
+
         if self.board[0][0] == self.board[1][1] == self.board[2][2] != ' ':
             return self.board[0][0]
         
@@ -104,14 +103,14 @@ class TicTacToe:
                 
                 self.make_move(position)
                 
-                # Check for winner
+
                 winner = self.check_winner()
                 if winner:
                     self.display_board()
                     print(f"🎉 Congratulations! Player {winner} wins! 🎉")
                     break
                 
-                # Check for tie
+
                 if self.is_board_full():
                     self.display_board()
                     print("🤝 It's a tie! Well played both players!")
@@ -124,8 +123,7 @@ class TicTacToe:
             except KeyboardInterrupt:
                 print("\n👋 Thanks for playing! Goodbye!")
                 break
-        
-        # Ask if they want to play again
+
         while True:
             play_again = input("\nWould you like to play again? (y/n): ").lower().strip()
             if play_again in ['y', 'yes']:
